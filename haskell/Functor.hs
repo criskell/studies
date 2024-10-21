@@ -1,6 +1,6 @@
 module Functor where
 
-newtype MyIO a = MyIO (IO a)
+newtype MyIO a = MyIO { getIO :: IO a }
 
 myIOToIO :: MyIO a -> IO a
 myIOToIO (MyIO io) = io 
@@ -26,4 +26,10 @@ instance Monad MyIO where
     --     value <- io
     --     myIOToIO $ f value
 
-    (MyIO io) >>= f = MyIO $ io >>= (myIOToIO . f)
+    -- (MyIO io) >>= f = MyIO $ io >>= (myIOToIO . f)
+
+    -- myIO >>= f = MyIO $ (getIO myIO) >>= (myIOToIO . f)
+
+    (>>=) myIO f = MyIO ((>>=) (getIO myIO) (myIOToIO . f))
+
+x = ((=<<) . (myIOToIO .))
