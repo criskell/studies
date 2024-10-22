@@ -1,9 +1,10 @@
+{-# LANGUAGE TypeApplications #-}
+
 module Functor where
 
 newtype MyIO a = MyIO { getIO :: IO a }
 
-myIOToIO :: MyIO a -> IO a
-myIOToIO (MyIO io) = io 
+s x y = x + y 
 
 instance Functor MyIO where
     fmap f action = do
@@ -15,10 +16,10 @@ instance Applicative MyIO where
     (MyIO f) <*> (MyIO x) = MyIO (f <*> x)
 
 instance Monad MyIO where
-    -- (MyIO io) >>= f = MyIO $ do
-    --     value <- io
-    --     let MyIO io' = f value
-    --     io'
+    (MyIO io) >>= f = MyIO $ do
+        value <- io
+        let MyIO io' = f value
+        io'
 
     -- (MyIO io) >>= f = MyIO $ io >>= (\value -> myIOToIO $ f value)
 
@@ -30,6 +31,8 @@ instance Monad MyIO where
 
     -- myIO >>= f = MyIO $ (getIO myIO) >>= (myIOToIO . f)
 
-    (>>=) myIO f = MyIO ((>>=) (getIO myIO) (myIOToIO . f))
+    -- (>>=) myIO f = MyIO ((>>=) (getIO myIO) (myIOToIO . f))
 
-x = ((=<<) . (myIOToIO .))
+    -- (>>=) = (MyIO .) . ((>>=) @IO) . getIO
+
+    (>>=) = (MyIO .) . (flip $ ((=<<)) . (getIO .)) . getIO
