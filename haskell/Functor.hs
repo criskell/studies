@@ -1,10 +1,12 @@
-se{-# LANGUAGE TypeApplications #-}
+{-# LANGUAGE TypeApplications #-}
 
 module Functor where
 
 newtype MyIO a = MyIO { getIO :: IO a }
 
-s x y = x + y 
+main = getIO $ do
+    MyIO $ putStrLn "Hello, world! 1"
+    MyIO $ putStrLn "Hello, world! 2"
 
 instance Functor MyIO where
     fmap f action = do
