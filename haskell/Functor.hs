@@ -1,4 +1,4 @@
-{-# LANGUAGE TypeApplications #-}
+se{-# LANGUAGE TypeApplications #-}
 
 module Functor where
 
@@ -33,3 +33,5 @@ instance Monad MyIO where
     -- (>>=) = (MyIO .) . (flip $ ((=<<)) . (getIO .)) . getIO
 
     -- (MyIO io) >>= f = MyIO $ io >>= getIO . f
+
+    (>>=) = (MyIO .) . (. (getIO .)) . (>>=) . getIO
