@@ -16,16 +16,7 @@ instance Applicative MyIO where
     (MyIO f) <*> (MyIO x) = MyIO (f <*> x)
 
 instance Monad MyIO where
-    (MyIO io) >>= f = MyIO $ do
-        value <- io
-        let MyIO io' = f value
-        io'
-
     -- (MyIO io) >>= f = MyIO $ io >>= (\value -> myIOToIO $ f value)
-
-    -- (MyIO io) >>= f = do
-    --     value <- io
-    --     myIOToIO $ f value
 
     -- (MyIO io) >>= f = MyIO $ io >>= (myIOToIO . f)
 
@@ -35,4 +26,10 @@ instance Monad MyIO where
 
     -- (>>=) = (MyIO .) . ((>>=) @IO) . getIO
 
-    (>>=) = (MyIO .) . (flip $ ((=<<)) . (getIO .)) . getIO
+    -- (>>=) = (MyIO .) . (getIO .) . (>>=) . getIO
+
+    -- (>>=) = (MyIO .) . (getIO .) . (>>=) . getIO
+
+    -- (>>=) = (MyIO .) . (flip $ ((=<<)) . (getIO .)) . getIO
+
+    -- (MyIO io) >>= f = MyIO $ io >>= getIO . f
