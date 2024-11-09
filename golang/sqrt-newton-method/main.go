@@ -16,7 +16,7 @@ func Sqrt(x float64) float64 {
 		// where `f(x) = currentGuess**2 - currentGuess` and f'(x) is derivative of `f` at `x`.
 		currentGuess -=  (math.Pow(currentGuess, 2) - x) / (2 * currentGuess)
 	
-		if math.Abs(currentGuess - previousGuess) < 1e-10 {
+		if math.Abs(currentGuess - previousGuess) < 1e-16 {
 			break
 		}
 	}
