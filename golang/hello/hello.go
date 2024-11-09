@@ -11,7 +11,7 @@ func main() {
     // Disable printing time, source file, and line number.
     log.SetFlags(0)
 
-    message, err := greetings.Hello("")
+    message, err := greetings.Hello("criskell")
     fmt.Println(message)
 
     if err != nil {
