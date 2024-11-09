@@ -1,8 +1,11 @@
 package main
 
-import "fmt"
-import "rsc.io/quote"
+import (
+    "fmt"
+    "example.com/greetings"
+)
 
 func main() {
-    fmt.Println(quote.Go())
+    message := greetings.Hello("criskell")
+    fmt.Println(message)
 }
