@@ -1,6 +1,6 @@
 require 'socket'
 
-server = TCPSocket.open('localhost', 4001)
+server = TCPSocket.open('localhost', 4002)
 
 server.puts 'Hello, server!'
 
