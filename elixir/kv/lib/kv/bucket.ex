@@ -1,5 +1,7 @@
 defmodule KV.Bucket do
-  use Agent
+  # a responsabilidade de um supervisor não é apenas
+  # reiniciar processos, mas também garantir um shutdown e startup apropriado.
+  use Agent, restart: :temporary
 
   @doc """
   Start a new bucket.
