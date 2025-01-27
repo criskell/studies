@@ -1,11 +1,15 @@
-defmodule KV.MixProject do
+defmodule KVServer.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :kv,
+      app: :kv_server,
       version: "0.1.0",
-      elixir: "~> 1.17",
+      build_path: "../../_build",
+      config_path: "../../config/config.exs",
+      deps_path: "../../deps",
+      lockfile: "../../mix.lock",
+      elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
       deps: deps()
     ]
@@ -15,15 +19,12 @@ defmodule KV.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {KV, []}
+      mod: {KVServer.Application, []}
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
-    [
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
-    ]
+    [{:kv, in_umbrella: true}]
   end
 end
