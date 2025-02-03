@@ -28,6 +28,13 @@ defmodule KV.Registry do
     GenServer.call(server, {:create, name})
   end
 
+  @doc """
+  Removes a bucket associated with the given `name` in `server`.
+  """
+  def delete(server, name) do
+    GenServer.call(server, {:delete, name})
+  end
+
   @impl true
   def init(table) do
     names = :ets.new(table, [:named_table, read_concurrency: true])
@@ -48,6 +55,16 @@ defmodule KV.Registry do
         :ets.insert(names, {name, pid})
         {:reply, pid, {names, refs}}
     end
+  end
+
+  @impl true
+  def handle_call({:delete, name}, _from, {names, refs}) do
+    case lookup(names, name) do
+      {:ok, pid} ->
+        Agent.stop(pid)
+    end
+
+    {:reply, :ok, {names, refs}}
   end
 
   @impl true
