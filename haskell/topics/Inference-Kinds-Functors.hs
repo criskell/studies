@@ -1,10 +1,8 @@
 {-# OPTIONS_GHC -fno-warn-partial-type-signatures #-}
 {-# LANGUAGE TypeApplications, ExplicitForAll, PartialTypeSignatures #-}
 
-import Data.Kind (Type)
-
 infixr |>
-(|>) :: forall (b :: Type). _
+(|>) :: forall b. _
 (|>) = flip ((<$>) @((->) b))
 
 main :: IO ()
