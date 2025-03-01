@@ -1,0 +1,11 @@
+services:
+  mysql:
+    container_name: 'magalums_db'
+    image: 'mysql:latest'
+    environment:
+      - 'MYSQL_DATABASE=magalums'
+      - 'MYSQL_PASSWORD=magalums'
+      - 'MYSQL_ROOT_PASSWORD=magalums'
+      - 'MYSQL_USER=magalums'
+    ports:
+      - '3306:3306'
