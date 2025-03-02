@@ -30,6 +30,6 @@ defmodule KV.Router do
   # lembrando que se o bucket for roteado para o nó atual, não precisamos enviar uma request para um nó remoto
   def table do
     # criskell é o hostname de minha máquina
-    [{?a..?m, :foo@criskell}, {?n..?z, :foo@criskell}]
+    Application.fetch_env!(:kv, :routing_table)
   end
 end

@@ -22,7 +22,6 @@ defmodule KVServerTest do
 
   # iex --sname bar -S mix
   # elixir --sname foo -S mix test
-  @tag :distributed
   test "test interaction", %{socket: socket} do
     assert send_and_recv(socket, "UNKNOWN shopping eggs\r\n") ==
              "UNKNOWN COMMAND\r\n"
