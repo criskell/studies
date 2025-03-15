@@ -1,12 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <ranges>
-#include <algorithm> // Necessário para std::ranges::min_element
+#include <algorithm>
 
 int main() 
 {
-    std::vector<int> nums = {1, 2, 3}; // Removido o '&' inválido
-    int x = *std::ranges::min_element(nums); // Correto
+    namespace ranges = std::ranges;
+
+    std::vector<int> nums = {1, 2, 3};
+    int x = *ranges::min_element(nums);
 
     std::cout << x;
     return 0;
