@@ -1,0 +1,13 @@
+{
+    "require": {
+        "doctrine/orm": "^3",
+        "doctrine/dbal": "^4",
+        "symfony/cache": "^7",
+        "symfony/translation-contracts": "^3.5"
+    },
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    }
+}
