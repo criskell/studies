@@ -56,12 +56,14 @@
         "streambuf": "cpp",
         "thread": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "print": "cpp"
     },
     "github.copilot.enable": {
         "*": false,
         "plaintext": false,
         "markdown": false,
         "scminput": false
-    }
+    },
+    "C_Cpp.default.compilerPath": "/usr/bin/g++-14"
 }
