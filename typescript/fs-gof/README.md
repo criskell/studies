@@ -1,0 +1,1 @@
+https://computaria.gitlab.io/blog/2025/05/24/functions-as-design-patterns
