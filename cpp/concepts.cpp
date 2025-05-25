@@ -85,6 +85,24 @@ void print_size_if_possible(const T &x)
     }
 }
 
+template <typename T>
+struct Wrapper
+{
+    T value;
+
+    void print_size() const
+    {
+        if constexpr (requires { value.size(); })
+        {
+            std::println("Tamanho: {}", value.size());
+        }
+        else
+        {
+            std::println("Sem método .size()");
+        }
+    }
+};
+
 int main()
 {
     int x = 10;
@@ -113,4 +131,10 @@ int main()
     print_size_if_possible(42);
 
     delete xs;
+
+    Wrapper<std::vector<int>> wrapper{{1, 2, 3}};
+    wrapper.print_size();
+
+    Wrapper<int> wrapper2{2};
+    wrapper2.print_size();
 }
