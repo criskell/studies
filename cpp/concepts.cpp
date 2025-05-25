@@ -1,4 +1,5 @@
 #include <print>
+#include <vector>
 
 // Criamos um conceito.
 template <typename T>
@@ -59,6 +60,31 @@ void check_if_has_size_method()
     }
 }
 
+template <typename T>
+concept HasSizeMethod = requires(T x) {
+    // Exige um retorno do tipo std::size_t.
+    { x.size() } -> std::convertible_to<std::size_t>;
+};
+
+template <HasSizeMethod T>
+void show_size(T x)
+{
+    std::println("{}", x.size());
+}
+
+template <typename T>
+void print_size_if_possible(const T &x)
+{
+    if constexpr (requires { x.size(); })
+    {
+        std::println("O size do maluco: {}", x.size());
+    }
+    else
+    {
+        std::println("O cara não tem size...");
+    }
+}
+
 int main()
 {
     int x = 10;
@@ -78,4 +104,13 @@ int main()
 
     check_if_has_size_method<numbers>();
     check_if_has_size_method<y>();
+
+    show_size(std::string("oi"));
+
+    std::vector<int> *xs = new std::vector<int>{1, 2, 3, 4, 5, 6};
+
+    print_size_if_possible(*xs);
+    print_size_if_possible(42);
+
+    delete xs;
 }
