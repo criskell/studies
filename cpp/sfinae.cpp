@@ -14,11 +14,11 @@
 // "decltype(42, void())" nos retorna o tipo void.
 
 // int é necessário para o compilador escolher a versão mais específica. caso contrário não saberia se o overload correto era esse
-// ou o de baixo. ele sempre escolhe a melhor correspondência.
-template <typename T, typename = std::enable_if<std::is_same_v<decltype(std::declval<T>().size()), std::size_t>>>
-void test(int)
+// ou o de baixo. ele sempre escolhe a melhor
+template <typename T>
+auto test(T x) -> decltype(std::declval<T>().size(), void())
 {
-    std::println("Tem size()");
+    std::println("Tem size(): {}", x.size());
 }
 
 template <typename T>
@@ -30,7 +30,7 @@ void test(...)
 int main()
 {
     test<int>(42);
-    test<std::string>(std::string("oi"));
+    test<std::vector<int>>(std::vector{1, 2, 3, 4, 5, 6, 7, 8, 9});
 
     static_assert(std::is_same_v<decltype(42, void()), void>);
 }
