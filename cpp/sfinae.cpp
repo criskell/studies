@@ -15,8 +15,8 @@
 
 // int é necessário para o compilador escolher a versão mais específica. caso contrário não saberia se o overload correto era esse
 // ou o de baixo. ele sempre escolhe a melhor correspondência.
-template <typename T>
-auto test(int) -> decltype(std::declval<T>().size(), void())
+template <typename T, typename = std::enable_if<std::is_same_v<decltype(std::declval<T>().size()), std::size_t>>>
+void test(int)
 {
     std::println("Tem size()");
 }
@@ -30,7 +30,7 @@ void test(...)
 int main()
 {
     test<int>(42);
-    test<std::vector<int>>(std::vector<int>{1, 2, 3});
+    test<std::string>(std::string("oi"));
 
     static_assert(std::is_same_v<decltype(42, void()), void>);
 }
