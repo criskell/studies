@@ -57,7 +57,10 @@
         "thread": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp",
-        "print": "cpp"
+        "print": "cpp",
+        "charconv": "cpp",
+        "format": "cpp",
+        "text_encoding": "cpp"
     },
     "github.copilot.enable": {
         "*": false,
