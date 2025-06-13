@@ -1,6 +1,6 @@
 <?php
 
-$nome = "Criskell";
+$nome = "criskell";
 $sexo = "Masculino";
 $idade = 20;
 
