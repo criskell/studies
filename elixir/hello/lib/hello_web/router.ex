@@ -27,25 +27,8 @@ defmodule HelloWeb.Router do
     get "/", PageController, :home
     get "/redirect_test", PageController, :redirect_test
 
-    resources "/users", UserController, only: [:show, :index] do
-      resources "/posts", PostController, except: [:edit, :update]
-    end
-
-    resources "/comments", CommentController, except: [:delete]
-    # resources "/reviews", ReviewController
     get "/hello", HelloController, :index
     get "/hello/:messenger", HelloController, :show
-
-    # pipe_through [:authenticate_user, :ensure_admin]
-    forward "/jobs", BackgroundJob.Plug, example_option: 1
-  end
-
-  scope "/admin", HelloWeb.Admin do
-    pipe_through :browser
-
-    resources "/images", ImageController
-    # resources "/reviews", ReviewController
-    resources "/users", UserController
   end
 
   # Other scopes may use custom stacks.
@@ -55,32 +38,6 @@ defmodule HelloWeb.Router do
 
   scope "/api", HelloWeb.Api, as: :api do
     pipe_through :api
-
-    scope "/v1", V1, as: :v1 do
-      resources "/images", ImageController
-      resources "/reviews", ReviewController
-      resources "/users", UserController
-    end
-  end
-
-  # scope "/reviews-2", HelloWeb do
-  #   pipe_through :auth
-
-  #   resources "/", ReviewController
-  # end
-
-  scope "/" do
-    pipe_through :browser
-
-    get "/reviews", ReviewController, :index
-    get "/reviews/:id", ReviewController, :show
-  end
-
-  scope "/" do
-    pipe_through [:browser, :auth]
-
-    get "/reviews/new", ReviewController, :new
-    post "/reviews", ReviewController, :create
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development

@@ -8,6 +8,6 @@ defmodule HelloWeb.PageController do
   end
 
   def redirect_test(conn, _params) do
-    render(conn, :home, layout: false)
+    render(conn, :home, items: [%{name: "Item A"}, %{name: "Item B"}], layout: false)
   end
 end

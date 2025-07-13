@@ -1,3 +1,7 @@
 <section>
-  <h2>Hello World, from {assigns.messenger}!</h2>
+  <.greet messenger={@messenger} />
+
+  <ul>
+    <li :for={item <- @items}>{item.name}</li>
+  </ul>
 </section>

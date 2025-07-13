@@ -11,6 +11,10 @@ defmodule HelloWeb.HelloController do
     # |> assign(:test, "oi")
     # |> render(:show)
 
-    render(conn, :show, messenger: messenger, test: "oi")
+    render(conn, :show,
+      messenger: messenger,
+      items: [%{name: "Item A"}, %{name: "Item B"}],
+      test: "oi"
+    )
   end
 end
