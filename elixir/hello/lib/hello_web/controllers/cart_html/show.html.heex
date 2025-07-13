@@ -1,0 +1,24 @@
+<.header>
+  My Cart
+  <:subtitle :if={@cart.items == []}>Your cart is empty</:subtitle>
+  <:actions>
+    <.link href={~p"/orders"} method="post">
+      <.button>Complete order</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<div :if={@cart.items !== []}>
+  <.simple_form :let={f} for={@changeset} action={~p"/cart"}>
+    <.inputs_for :let={%{data: item} = item_form} field={f[:items]}>
+      <.input field={item_form[:quantity]} type="number" label={item.product.title} />
+      {currency_to_str(ShoppingCart.total_item_price(item))}
+    </.inputs_for>
+    <:actions>
+      <.button>Update cart</.button>
+    </:actions>
+  </.simple_form>
+  <b>Total</b>: {currency_to_str(ShoppingCart.total_cart_price(@cart))}
+</div>
+
+<.back navigate={~p"/products"}>Back to products</.back>
