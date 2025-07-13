@@ -1,0 +1,18 @@
+<.simple_form :let={f} for={@changeset} action={@action}>
+  <.error :if={@changeset.action}>
+    Oops, something went wrong! Please check the errors below.
+  </.error>
+  <.input field={f[:title]} type="text" label="Title" />
+  <.input field={f[:description]} type="text" label="Description" />
+  <.input field={f[:price]} type="number" label="Price" step="any" />
+  <.input field={f[:views]} type="number" label="Views" />
+  <.input
+    field={f[:category_ids]}
+    type="select"
+    multiple={true}
+    options={category_opts(@changeset)}
+  />
+  <:actions>
+    <.button>Save Product</.button>
+  </:actions>
+</.simple_form>

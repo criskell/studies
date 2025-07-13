@@ -1,0 +1,8 @@
+<.header>
+  New Product
+  <:subtitle>Use this form to manage product records in your database.</:subtitle>
+</.header>
+
+<.product_form changeset={@changeset} action={~p"/products"} />
+
+<.back navigate={~p"/products"}>Back to products</.back>
