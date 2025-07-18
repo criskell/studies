@@ -4,11 +4,11 @@ void insertion_sort(int *arr, int size, int reversed);
 
 int main()
 {
-  int a[] = {0, 1};
+  int a[] = {0, 4, 1};
 
-  insertion_sort(a, 2, 1);
+  insertion_sort(a, 3, 1);
 
-  for (int i = 0; i < 2; i++)
+  for (int i = 0; i < 3; i++)
   {
     printf("%d ", a[i]);
   }
@@ -24,7 +24,7 @@ void insertion_sort(int *arr, int size, int reversed)
     int value = arr[i];
     int j;
 
-    for (j = i - 1; (reversed ? arr[j] < value : arr[j] > value) && j >= 0; j--)
+    for (j = i - 1; arr[j] < value == reversed && j >= 0; j--)
     {
       arr[j + 1] = arr[j];
     }
