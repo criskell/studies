@@ -1,0 +1,5 @@
+CREATE TABLE tasks (
+  id BIGINT PRIMARY KEY AUTO_INCREMENT,
+  title VARCHAR(255),
+  is_completed BOOLEAN
+);
