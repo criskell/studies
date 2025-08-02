@@ -1,0 +1,13 @@
+services:
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongodb
+      - MONGO_INITDB_ROOT_PASSWORD=mongodb
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    ports:
+      - 15672:15672 # Admin UI
+      - 5672:5672 # Server
