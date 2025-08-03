@@ -1,0 +1,51 @@
+### Insere um cliente
+POST http://localhost:8080/clientes
+Content-Type: application/json
+
+{
+  "nome": "Eren",
+  "contatos": [
+    {
+      "telefone": "123456789",
+      "email": "cris@criskell.com"
+    },
+    {
+      "telefone": "987654321",
+      "email": "dev@criskell.com"
+    }
+  ]
+}
+
+### Inserir um cliente sem contatos
+POST http://localhost:8080/clientes
+Content-Type: application/json
+
+{
+  "nome": "Mikasa"
+}
+
+### Inserir um contato para um cliente existente
+POST http://localhost:8080/contatos
+Content-Type: application/json
+
+{
+  "clienteId": "2",
+  "telefone": "55555555559",
+  "email": "teste2@criskell.com"
+}
+
+### Listagem de todos os clientes com seus contatos
+GET http://localhost:8080/clientes
+Content-Type: application/json
+
+### Listagem de contatos de um cliente por ID
+GET http://localhost:8080/clientes/1/contatos
+Content-Type: application/json
+
+### Inserir um contato
+POST http://localhost:8080/contatos
+Content-Type: application/json
+
+{
+  "clienteId": "2"
+}
