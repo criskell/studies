@@ -1,0 +1,17 @@
+services:
+  mysql:
+    image: mysql
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
+    environment:
+      - MYSQL_USER=mysql
+      - MYSQL_PASSWORD=mysql
+      - MYSQL_DATABASE=picpay
+      - MYSQL_ROOT_PASSWORD=mysql
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  db:
