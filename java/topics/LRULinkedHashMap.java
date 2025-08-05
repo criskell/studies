@@ -13,6 +13,8 @@ class LRUCache<K, V> extends LinkedHashMap<K, V> {
         this.maxCapacity = maxCapacity;
     }
 
+    // Define quando remover o elemento mais velho.
+    // Chamado quando um novo elemento é adicionado.
     @Override
     protected boolean removeEldestEntry(Map.Entry<K, V> eldest) {
         return size() > maxCapacity;
