@@ -30,6 +30,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import com.criskell.cbabchallenge.backend.entity.CnabTransaction;
 import com.criskell.cbabchallenge.backend.entity.Transaction;
+import com.criskell.cbabchallenge.backend.entity.TransactionType;
 
 @Configuration
 public class BatchConfig {
@@ -93,11 +94,13 @@ public class BatchConfig {
     @Bean
     ItemProcessor<CnabTransaction, Transaction> processor() {
         return item -> {
+            var transactionType = TransactionType.findByType(item.type());
+            var normalizedValue = item.value().divide(BigDecimal.valueOf(100)).multiply(transactionType.getSign());
             var transaction = new Transaction(
                     null,
                     item.type(),
                     null,
-                    item.value().divide(BigDecimal.valueOf(100)),
+                    normalizedValue,
                     item.cpf(),
                     item.card(),
                     null,

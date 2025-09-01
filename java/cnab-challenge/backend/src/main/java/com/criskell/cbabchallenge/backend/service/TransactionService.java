@@ -8,7 +8,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.criskell.cbabchallenge.backend.entity.TransactionReport;
-import com.criskell.cbabchallenge.backend.entity.TransactionType;
 import com.criskell.cbabchallenge.backend.repository.TransactionRepository;
 
 @Service
@@ -25,8 +24,7 @@ public class TransactionService {
 
         transactions.forEach(transaction -> {
             String storeName = transaction.storeName();
-            var transactionType = TransactionType.findByType(transaction.type());
-            BigDecimal value = transaction.value().multiply(transactionType.getSign());
+            BigDecimal value = transaction.value();
 
             reportMap.compute(storeName, (key, existingReport) -> {
                 var report = (existingReport != null) ? existingReport
