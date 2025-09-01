@@ -1,5 +1,6 @@
 package com.criskell.cbabchallenge.backend.web;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,6 +19,7 @@ public class CnabController {
     }
 
     @PostMapping("upload")
+    @CrossOrigin(origins = { "http://localhost:9090", "http://localhost:5173" })
     public String upload(@RequestParam("file") MultipartFile file) throws Exception {
         cnabService.uploadCnabFile(file);
 
