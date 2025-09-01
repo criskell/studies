@@ -44,7 +44,7 @@ function App() {
 
       formData.append('file', file);
 
-      await axios.post(UPLOAD_CNAB_URL, formData, {
+      const response = await axios.post(UPLOAD_CNAB_URL, formData, {
         headers: {
           'Content-type': 'multipart/form-data',
         },
@@ -54,7 +54,12 @@ function App() {
       setSuccess(response.data);
     } catch (e) {
       console.error('Error while uploading CNAB file:', e);
-      setError(e.response.data);
+
+      const error = e?.response?.data;
+
+      if (error) {
+        setError(error);
+      }
     }
   };
 
