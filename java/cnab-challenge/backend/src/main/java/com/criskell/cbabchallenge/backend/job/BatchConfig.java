@@ -24,13 +24,12 @@ import org.springframework.batch.item.file.transform.Range;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.transaction.PlatformTransactionManager;
 
-import com.criskell.cbabchallenge.backend.domain.CnabTransaction;
-import com.criskell.cbabchallenge.backend.domain.Transaction;
+import com.criskell.cbabchallenge.backend.entity.CnabTransaction;
+import com.criskell.cbabchallenge.backend.entity.Transaction;
 
 @Configuration
 public class BatchConfig {
@@ -114,9 +113,9 @@ public class BatchConfig {
         return new JdbcBatchItemWriterBuilder<Transaction>()
                 .dataSource(dataSource)
                 .sql("""
-                            INSERT INTO "transaction" (
-                                type, date, "value", cpf, card,
-                                "hour", store_owner, store_name
+                            INSERT INTO transaction (
+                                type, date, `value`, cpf, card,
+                                `hour`, store_owner, store_name
                             ) VALUES (
                                 :type, :date, :value, :cpf, :card,
                                 :hour, :storeOwner, :storeName

@@ -1,21 +1,23 @@
-package com.criskell.cbabchallenge.backend.domain;
+package com.criskell.cbabchallenge.backend.entity;
 
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 
 public record Transaction(
-        Long id,
+        @Id Long id,
         Integer type,
         Date date,
         BigDecimal value,
         Long cpf,
         String card,
         Time hour,
-        String storeOwner,
-        String storeName) {
+        @Column("STORE_OWNER") String storeOwner,
+        @Column("STORE_NAME") String storeName) {
 
     // N.B.: "Wither pattern"
     public Transaction withValue(BigDecimal value) {

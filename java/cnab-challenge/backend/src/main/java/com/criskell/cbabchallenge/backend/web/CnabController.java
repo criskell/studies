@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.criskell.cbabchallenge.backend.domain.CnabService;
+import com.criskell.cbabchallenge.backend.service.CnabService;
 
 @RestController
 @RequestMapping("cnab")
