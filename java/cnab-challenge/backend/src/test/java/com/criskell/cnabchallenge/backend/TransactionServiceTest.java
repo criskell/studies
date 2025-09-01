@@ -1,4 +1,4 @@
-package com.criskell.cbabchallenge.backend;
+package com.criskell.cnabchallenge.backend;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -15,9 +15,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.criskell.cbabchallenge.backend.entity.Transaction;
-import com.criskell.cbabchallenge.backend.repository.TransactionRepository;
-import com.criskell.cbabchallenge.backend.service.TransactionService;
+import com.criskell.cnabchallenge.backend.entity.Transaction;
+import com.criskell.cnabchallenge.backend.repository.TransactionRepository;
+import com.criskell.cnabchallenge.backend.service.TransactionService;
 
 @ExtendWith(MockitoExtension.class)
 public class TransactionServiceTest {

@@ -1,4 +1,4 @@
-package com.criskell.cbabchallenge.backend;
+package com.criskell.cnabchallenge.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

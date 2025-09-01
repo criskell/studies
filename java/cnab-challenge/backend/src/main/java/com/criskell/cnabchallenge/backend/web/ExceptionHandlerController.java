@@ -1,4 +1,4 @@
-package com.criskell.cbabchallenge.backend.web;
+package com.criskell.cnabchallenge.backend.web;
 
 import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException;
 import org.springframework.http.HttpStatus;

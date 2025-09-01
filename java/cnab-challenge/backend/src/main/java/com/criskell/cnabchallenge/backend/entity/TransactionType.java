@@ -1,4 +1,4 @@
-package com.criskell.cbabchallenge.backend.entity;
+package com.criskell.cnabchallenge.backend.entity;
 
 import java.math.BigDecimal;
 

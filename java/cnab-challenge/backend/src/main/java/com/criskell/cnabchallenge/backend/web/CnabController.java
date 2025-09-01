@@ -1,4 +1,4 @@
-package com.criskell.cbabchallenge.backend.web;
+package com.criskell.cnabchallenge.backend.web;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.criskell.cbabchallenge.backend.service.CnabService;
+import com.criskell.cnabchallenge.backend.service.CnabService;
 
 @RestController
 @RequestMapping("cnab")

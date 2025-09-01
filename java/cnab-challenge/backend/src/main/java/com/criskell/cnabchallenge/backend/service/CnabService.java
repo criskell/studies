@@ -1,4 +1,4 @@
-package com.criskell.cbabchallenge.backend.service;
+package com.criskell.cnabchallenge.backend.service;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

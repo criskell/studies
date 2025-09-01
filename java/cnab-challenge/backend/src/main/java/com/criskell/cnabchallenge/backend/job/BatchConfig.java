@@ -1,4 +1,4 @@
-package com.criskell.cbabchallenge.backend.job;
+package com.criskell.cnabchallenge.backend.job;
 
 import java.math.BigDecimal;
 
@@ -28,9 +28,9 @@ import org.springframework.core.io.Resource;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.transaction.PlatformTransactionManager;
 
-import com.criskell.cbabchallenge.backend.entity.CnabTransaction;
-import com.criskell.cbabchallenge.backend.entity.Transaction;
-import com.criskell.cbabchallenge.backend.entity.TransactionType;
+import com.criskell.cnabchallenge.backend.entity.CnabTransaction;
+import com.criskell.cnabchallenge.backend.entity.Transaction;
+import com.criskell.cnabchallenge.backend.entity.TransactionType;
 
 @Configuration
 public class BatchConfig {

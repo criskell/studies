@@ -1,4 +1,4 @@
-package com.criskell.cbabchallenge.backend.web;
+package com.criskell.cnabchallenge.backend.web;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.criskell.cbabchallenge.backend.entity.TransactionReport;
-import com.criskell.cbabchallenge.backend.service.TransactionService;
+import com.criskell.cnabchallenge.backend.entity.TransactionReport;
+import com.criskell.cnabchallenge.backend.service.TransactionService;
 
 @RestController
 @RequestMapping("transactions")

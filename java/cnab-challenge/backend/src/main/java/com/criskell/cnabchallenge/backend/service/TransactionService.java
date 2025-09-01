@@ -1,4 +1,4 @@
-package com.criskell.cbabchallenge.backend.service;
+package com.criskell.cnabchallenge.backend.service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -7,8 +7,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.criskell.cbabchallenge.backend.entity.TransactionReport;
-import com.criskell.cbabchallenge.backend.repository.TransactionRepository;
+import com.criskell.cnabchallenge.backend.entity.TransactionReport;
+import com.criskell.cnabchallenge.backend.repository.TransactionRepository;
 
 @Service
 public class TransactionService {
