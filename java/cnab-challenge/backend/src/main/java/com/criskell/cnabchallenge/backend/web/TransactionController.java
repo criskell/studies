@@ -20,7 +20,7 @@ public class TransactionController {
     }
 
     @GetMapping
-    @CrossOrigin(origins = { "http://localhost:9090", "http://localhost:5173" })
+    @CrossOrigin()
     List<TransactionReport> listAll() {
         return transactionService.listTransactionTotalsByStoreName();
     }
