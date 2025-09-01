@@ -1,4 +1,4 @@
-package com.criskell.cbabchallenge.backend;
+package com.criskell.cbabchallenge.backend.domain;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -15,22 +15,20 @@ public record Transaction(
         String card,
         Time hour,
         String storeOwner,
-        String storeName
-        ) {
+        String storeName) {
 
     // N.B.: "Wither pattern"
     public Transaction withValue(BigDecimal value) {
         return new Transaction(
-                this.id(),
-                this.type(),
-                this.date(),
+                id,
+                type,
+                date,
                 value,
-                this.cpf(),
-                this.card(),
-                this.hour(),
-                this.storeOwner().trim(),
-                this.storeName().trim()
-        );
+                cpf,
+                card,
+                hour,
+                storeOwner,
+                storeName);
     }
 
     public Transaction withDate(String date) throws ParseException {
@@ -38,16 +36,15 @@ public record Transaction(
         var parsedDate = dateFormat.parse(date);
 
         return new Transaction(
-                this.id(),
-                this.type(),
+                id,
+                type,
                 new Date(parsedDate.getTime()),
-                this.value(),
-                this.cpf(),
-                this.card(),
-                this.hour(),
-                this.storeOwner().trim(),
-                this.storeName().trim()
-        );
+                value,
+                cpf,
+                card,
+                hour,
+                storeOwner,
+                storeName);
     }
 
     public Transaction withHour(String date) throws ParseException {
@@ -55,15 +52,14 @@ public record Transaction(
         var parsedDate = dateFormat.parse(date);
 
         return new Transaction(
-                this.id(),
-                this.type(),
-                this.date(),
-                this.value(),
-                this.cpf(),
-                this.card(),
+                id,
+                type,
+                this.date,
+                value,
+                cpf,
+                card,
                 new Time(parsedDate.getTime()),
-                this.storeOwner().trim(),
-                this.storeName().trim()
-        );
+                storeOwner,
+                storeName);
     }
 }
