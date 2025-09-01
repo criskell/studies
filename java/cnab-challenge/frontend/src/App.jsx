@@ -66,7 +66,7 @@ function App() {
                   {report.transactions.map((transaction, key) => (
                     <tr
                       key={key}
-                      className={idx % 2 === 0 ? 'bg-gray-100' : 'bg-white'}
+                      className={key % 2 === 0 ? 'bg-gray-100' : 'bg-white'}
                     >
                       <td className="px-4 py-2">{transaction.card}</td>
                       <td className="px-4 py-2">{transaction.cpf}</td>
