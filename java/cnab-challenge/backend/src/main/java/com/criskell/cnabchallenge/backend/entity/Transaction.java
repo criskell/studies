@@ -16,8 +16,8 @@ public record Transaction(
         Long cpf,
         String card,
         Time hour,
-        @Column("STORE_OWNER") String storeOwner,
-        @Column("STORE_NAME") String storeName) {
+        @Column("store_owner") String storeOwner,
+        @Column("store_name") String storeName) {
 
     // N.B.: "Wither pattern"
     public Transaction withValue(BigDecimal value) {

@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 import './App.css';
 
 function App() {
-  const [transactionReports, setTransactions] = useState();
+  const [transactionReports, setTransactions] = useState([]);
   const [file, setFile] = useState(null);
 
   const fetchTransactions = async () => {
@@ -21,7 +22,7 @@ function App() {
 
     formData.append('file', file);
 
-    await axios.post('http://localhost:8080', formData, {
+    await axios.post('http://localhost:8080/cnab/upload', formData, {
       headers: {
         'Content-type': 'multipart/form-data',
       },

@@ -117,8 +117,8 @@ public class BatchConfig {
                 .dataSource(dataSource)
                 .sql("""
                             INSERT INTO transaction (
-                                type, date, `value`, cpf, card,
-                                `hour`, store_owner, store_name
+                                type, date, value, cpf, card,
+                                hour, store_owner, store_name
                             ) VALUES (
                                 :type, :date, :value, :cpf, :card,
                                 :hour, :storeOwner, :storeName
