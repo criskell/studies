@@ -10,7 +10,7 @@ const FETCH_TRANSACTIONS_URL =
   'http://localhost:8080/transactions';
 const UPLOAD_CNAB_URL =
   import.meta.env.VITE_REACT_APP_UPLOAD_URL ||
-  'http://localhost:8080/upload/cnab';
+  'http://localhost:8080/cnab/upload';
 
 function App() {
   const [transactionReports, setTransactionReports] = useState([]);
