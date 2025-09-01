@@ -147,14 +147,16 @@ function App() {
 
                 <table className="table-auto w-full">
                   <thead>
-                    <tr className="px-4 py-2">Card</tr>
-                    <tr className="px-4 py-2">CPF</tr>
-                    <tr className="px-4 py-2">Date</tr>
-                    <tr className="px-4 py-2">Store owner</tr>
-                    <tr className="px-4 py-2">Hour</tr>
-                    <tr className="px-4 py-2">Store name</tr>
-                    <tr className="px-4 py-2">Type</tr>
-                    <tr className="px-4 py-2">Value</tr>
+                    <tr>
+                      <th className="px-4 py-2">Card</th>
+                      <th className="px-4 py-2">CPF</th>
+                      <th className="px-4 py-2">Date</th>
+                      <th className="px-4 py-2">Store owner</th>
+                      <th className="px-4 py-2">Hour</th>
+                      <th className="px-4 py-2">Store name</th>
+                      <th className="px-4 py-2">Type</th>
+                      <th className="px-4 py-2">Value</th>
+                    </tr>
                   </thead>
                   <tbody>
                     {report.transactions.map((transaction, key) => (
