@@ -108,7 +108,7 @@ function App() {
         disabled={isLoading}
       >
         <FontAwesomeIcon icon={faSync} spin={isLoading} className="mr-2" />
-        {isLoading ? 'Atualizando...' : 'Atualizar Transações'}
+        {isLoading ? 'Atualizando...' : 'Reload Transactions'}
       </button>
 
       <div className="p-4">
@@ -117,7 +117,7 @@ function App() {
         <ul className="bg-white shadow-md rounded-md p-4">
           {transactionReports.length === 0 ? (
             <p className="mb-4 text-gray-500 text-center">
-              Sem transações disponíveis.
+              No transactions available
             </p>
           ) : (
             transactionReports.map((report, key) => (
@@ -142,14 +142,14 @@ function App() {
 
                 <table className="table-auto w-full">
                   <thead>
-                    <tr className="px-4 py-2">Cartão</tr>
+                    <tr className="px-4 py-2">Card</tr>
                     <tr className="px-4 py-2">CPF</tr>
-                    <tr className="px-4 py-2">Data</tr>
-                    <tr className="px-4 py-2">Dono da loja</tr>
-                    <tr className="px-4 py-2">Hora</tr>
-                    <tr className="px-4 py-2">Nome da loja</tr>
-                    <tr className="px-4 py-2">Tipo</tr>
-                    <tr className="px-4 py-2">Valor</tr>
+                    <tr className="px-4 py-2">Date</tr>
+                    <tr className="px-4 py-2">Store owner</tr>
+                    <tr className="px-4 py-2">Hour</tr>
+                    <tr className="px-4 py-2">Store name</tr>
+                    <tr className="px-4 py-2">Type</tr>
+                    <tr className="px-4 py-2">Value</tr>
                   </thead>
                   <tbody>
                     {report.transactions.map((transaction, key) => (
