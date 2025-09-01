@@ -5,8 +5,12 @@ import { faSync } from '@fortawesome/free-solid-svg-icons';
 
 import './App.css';
 
-const FETCH_TRANSACTIONS_URL = import.meta.env.VITE_REACT_APP_FETCH_URL;
-const UPLOAD_CNAB_URL = import.meta.env.VITE_REACT_APP_UPLOAD_URL;
+const FETCH_TRANSACTIONS_URL =
+  import.meta.env.VITE_REACT_APP_FETCH_URL ||
+  'http://localhost:8080/transactions';
+const UPLOAD_CNAB_URL =
+  import.meta.env.VITE_REACT_APP_UPLOAD_URL ||
+  'http://localhost:8080/upload/cnab';
 
 function App() {
   const [transactionReports, setTransactionReports] = useState([]);
@@ -18,7 +22,7 @@ function App() {
   const fetchTransactions = async () => {
     try {
       setIsLoading(true);
-      const response = await axios.get('http://localhost:8080/transactions');
+      const response = await axios.get(FETCH_TRANSACTIONS_URL);
       setTransactionReports(response.data);
     } catch (e) {
       console.error('Error while fetching transactions:', e);
@@ -40,7 +44,7 @@ function App() {
 
       formData.append('file', file);
 
-      await axios.post('http://localhost:8080/cnab/upload', formData, {
+      await axios.post(UPLOAD_CNAB_URL, formData, {
         headers: {
           'Content-type': 'multipart/form-data',
         },
