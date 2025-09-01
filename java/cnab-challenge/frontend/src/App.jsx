@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSync } from '@fortawesome/free-solid-svg-icons';
 
 import './App.css';
 
@@ -69,7 +71,6 @@ function App() {
     <div className="p-4">
       <h1 className="text-2xl font-semibold mb-4">CNAB Importer</h1>
 
-      {/* File Upload Form */}
       <div className="mb-8">
         <div className="flex items-center space-x-4">
           <label className="text-gray-600">
