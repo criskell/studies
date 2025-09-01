@@ -167,6 +167,7 @@ function App() {
                         <td className="px-4 py-2">{transaction.card}</td>
                         <td className="px-4 py-2">{transaction.cpf}</td>
                         <td className="px-4 py-2">{transaction.date}</td>
+                        <td className="px-4 py-2">{transaction.storeOwner}</td>
                         <td className="px-4 py-2">{transaction.hour}</td>
                         <td className="px-4 py-2">{transaction.storeName}</td>
                         <td className="px-4 py-2">{transaction.type}</td>
