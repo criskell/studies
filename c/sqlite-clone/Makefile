@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra
 
 all: $(TARGET)
 
-$(TARGET): $(SRC)
+$(TARGET): $(SRCS)
 	$(CC) $(CFLAGS) -o $(TARGET) $(SRCS)
 
 clean:
